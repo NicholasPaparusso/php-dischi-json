@@ -6,6 +6,7 @@ createApp({
     return{
       apiUrl : 'server.php',
       cds : [],
+      counterCd : '',
     }
   },
 
@@ -18,6 +19,8 @@ createApp({
           console.log(this.cds);
         }) 
     }
+
+
 
   },
 

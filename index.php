@@ -21,17 +21,39 @@
 
 <body>
   
-  <div id="app" class="main-wrapper d-flex justify-content-center align-items-center">
-    <div class="container">
+  <div id="app" class="main-wrapper">
+    <div class="container d-flex justify-content-center">
       <div class="row">
 
-        <div class="col-4"
-        v-for="(cd,index) in cds " :key="index">
+        <div class="col-12 col-md-6 col-xl-4 my-5 d-flex justify-content-center"
+        v-for="(cd,index) in cds " :key="index"
+        @click.stop="this.counterCd = index"
+        >
       
-          <div class="np-card">
-            <img :src="cd.poster" :alt="cd.title">
-            <p>{{cd.title}}</p>
-            <p>{{cd.author}}</p>
+          <div
+          class="np-card">
+            <div class="image-container">
+              <img :src="cd.poster" :alt="cd.title">
+            </div>
+            <span>{{cd.author}}</span>
+            <span>{{cd.title}}</span>
+
+            <div v-if="index === this.counterCd" class="cd-menu">
+              <div class="np-card">
+                <div class="image-container">
+                <img :src="cd.poster" :alt="cd.title">
+                </div>
+                <span>{{cd.author}}</span>
+                <span>{{cd.title}}</span>
+                <span>{{cd.year}}</span>
+                <span>{{cd.genre}}</span>
+              </div>
+
+              <div
+              @click.stop="this.counterCd = '' "
+              class="np-btn">x</div>
+
+            </div>
           </div>
 
         </div>
