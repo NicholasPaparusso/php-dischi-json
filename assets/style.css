@@ -1,0 +1,11 @@
+
+body{
+  background-color: #121212;
+}
+
+.main-wrapper{
+  height: 90vh;
+  width: 90%;
+  background-color: #000000;
+  margin: 5vh auto;
+}
