@@ -26,19 +26,19 @@
       <div class="row">
 
         <div class="col-12 col-md-6 col-xl-4 my-5 d-flex justify-content-center"
-        v-for="(cd,index) in cds " :key="index"
-        @click.stop="this.counterCd = index"
+        v-for="(disk,index) in cds " :key="index"
+        @click.stop="getCdDetail(index)"
         >
       
           <div
           class="np-card">
             <div class="image-container">
-              <img :src="cd.poster" :alt="cd.title">
+              <img :src="disk.poster" :alt="disk.title">
             </div>
-            <span>{{cd.author}}</span>
+            <span>{{disk.author}}</span>
             <span>{{cd.title}}</span>
 
-            <div v-if="index === this.counterCd" class="cd-menu">
+            <div v-if="showCdDetail" class="cd-menu">
               <div class="np-card">
                 <div class="image-container">
                 <img :src="cd.poster" :alt="cd.title">
@@ -50,7 +50,7 @@
               </div>
 
               <div
-              @click.stop="this.counterCd = '' "
+              @click.stop="showCdDetail = false "
               class="np-btn">x</div>
 
             </div>

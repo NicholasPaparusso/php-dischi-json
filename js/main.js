@@ -6,7 +6,8 @@ createApp({
     return{
       apiUrl : 'server.php',
       cds : [],
-      counterCd : '',
+      cd : {},
+      showCdDetail : false,
     }
   },
 
@@ -18,6 +19,18 @@ createApp({
           this.cds = result.data;
           console.log(this.cds);
         }) 
+    },
+
+    getCdDetail(index){
+      const params = {
+        cdIndex: index
+      }
+
+      axios.get(this.apiUrl ,{params})
+        .then(result => {
+          this.showCdDetail = true;
+          this.cd = result.data
+        })
     }
 
 
